@@ -1,6 +1,8 @@
 #ifndef TUBES_H_INCLUDED
 #define TUBES_H_INCLUDED
+
 #include <iostream>
+#include <string>
 
 #define infoOrang(P) (P)->infoOrang
 #define nextOrang(P) (P)->nextOrang
@@ -18,7 +20,7 @@ using namespace std;
 struct infoOrang{
     string nama;
     int umur;
-    int NIK;
+    string NIK;
 };
 
 struct infoSeat{
@@ -60,14 +62,16 @@ adrOrang createElementOrang(infoOrang x);
 adrRelation createElementRelation();
 void insertLastSeat(listSeat &L3, adrSeat a);
 void showAll(listSeat L3);
-void deleteSeat(listSeat &L3, int nomor, adrSeat &s);
+void deleteSeat(listSeat &L3, int noSeat);
 adrSeat searchSeat(listSeat L3, int nomorSeat);
-adrOrang searchOrang(listOrang L2, string nama);
+adrOrang searchOrang(listOrang L2, string NIK);
 void inserLastOrang(listOrang &L2, adrOrang b);
-void connect(listSeat &L3, listOrang L2, int NIK, int nomorSeat);
+void connect(listSeat &L3, listOrang L2, string NIK, int nomorSeat);
 void showAllListSeat(listSeat L3);
-adrOrang findOrang(listOrang &L2, string nama, int nomor);
-void deleteOrang(listSeat &L3 , string nama, adrOrang &j);
-int jumlahOrang(listSeat &L3, int nomor);
-
+void showAllListSeat2(listSeat L3);
+void deleteOrang(listOrang &L2,string NIK,listSeat &L3);
+int jumlahOrang(listSeat &L3, int noSeat);
+void showAllListOrang(listOrang L3);
+bool cekSeat(listSeat L3, int nomorSeat);
+bool cekOrang(listOrang L2, string NIK);
 #endif // TUBES_H_INCLUDED
